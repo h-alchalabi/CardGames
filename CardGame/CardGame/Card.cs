@@ -28,5 +28,19 @@ namespace CardGame
         public String toString(){
             return this.value + this.suite;
         }
+
+        public int valueStringToInt()
+        {
+            if (this.value == "A")
+                return 1;
+            else if (this.value == "J")
+                return 11;
+            else if (this.value == "Q")
+                return 12;
+            else if (this.value == "K")
+                return 13;
+            else
+                return Int32.Parse(this.value);
+        }
     }
 }

@@ -47,7 +47,7 @@ namespace CardGame
 
         public void sort()
         {
-            hand.OrderBy(card => card.getSuite);
+            
         }
 
     }
