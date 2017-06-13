@@ -1,0 +1,6 @@
+c:\users\haani\documents\visual studio 2013\Projects\CardGame\CardGame\bin\Debug\CardGame.exe.config
+c:\users\haani\documents\visual studio 2013\Projects\CardGame\CardGame\bin\Debug\CardGame.exe
+c:\users\haani\documents\visual studio 2013\Projects\CardGame\CardGame\bin\Debug\CardGame.pdb
+c:\users\haani\documents\visual studio 2013\Projects\CardGame\CardGame\obj\Debug\CardGame.csprojResolveAssemblyReference.cache
+c:\users\haani\documents\visual studio 2013\Projects\CardGame\CardGame\obj\Debug\CardGame.exe
+c:\users\haani\documents\visual studio 2013\Projects\CardGame\CardGame\obj\Debug\CardGame.pdb
