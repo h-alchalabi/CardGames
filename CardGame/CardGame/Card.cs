@@ -8,8 +8,17 @@ namespace CardGame
 {
     class Card
     {
-        private char suite {get; set;}
-        private string value {get; set;}
+        private char suite;
+        private string value;
+
+        public char getSuite()
+        {
+            return this.suite;
+        }
+        public string getValue()
+        {
+            return this.value;
+        }
 
         public Card(char suite, String value){
             this.suite = suite;

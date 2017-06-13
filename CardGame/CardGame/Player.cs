@@ -33,5 +33,22 @@ namespace CardGame
         {
             i = 2; 
         }
+
+        public void printHand() //Prints the player's hand. 
+        {
+            StringBuilder s = new StringBuilder();
+            s.Append("Hand: ");
+            foreach (Card c in hand)
+            {
+                s.Append(c.toString() + " ");
+            }
+            Console.WriteLine(s);
+        }
+
+        public void sort()
+        {
+            hand.OrderBy(card => card.getSuite);
+        }
+
     }
 }

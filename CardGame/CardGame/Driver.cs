@@ -10,41 +10,43 @@ namespace CardGame
     {
         static void Main(string[] args)
         {
-            int amountOfPlayers = 5, amountToDeal = 8;
+            int amountOfPlayers = 5;
             Deck deck = new Deck(52);
             Player[] playerArray = new Player[amountOfPlayers];
             CrazyEight crazyEight = new CrazyEight(amountOfPlayers, deck);
+            crazyEight.Play();
+            
 
-            for (int i = 0; i < playerArray.Length; i++)
-            {
-                playerArray[i] = new Player(amountToDeal);
-            }
+            //for (int i = 0; i < playerArray.Length; i++)
+            //{
+            //    playerArray[i] = new Player(amountToDeal);
+            //}
 
-            Console.WriteLine(deck.toString());
+            //Console.WriteLine(deck.toString());
 
-            deck.setDeck(deck.shuffle());
+            //deck.setDeck(deck.shuffle());
 
-            for (int i = 0; i <= 3; i++)
-            {
-                deck.setDeck(deck.shuffle());
-            }
+            //for (int i = 0; i <= 3; i++)
+            //{
+            //    deck.setDeck(deck.shuffle());
+            //}
 
-            Console.WriteLine("\nShuffled Deck: \n" + deck.toString());
+            //Console.WriteLine("\nShuffled Deck: \n" + deck.toString());
 
-            deck.deal(playerArray, amountToDeal);
+            //deck.deal(playerArray, amountToDeal);
 
-            Console.WriteLine("\nPlayer Hands: ");
+            //Console.WriteLine("\nPlayer Hands: ");
 
-            foreach (Player p in playerArray)
-            {
-                Card[] temp = p.getHand();
+            //foreach (Player p in playerArray)
+            //{
+            //    Card[] temp = p.getHand();
 
-                for (int i = 0; i < temp.Length; i++)
-                {
-                    Console.Write(temp[i].toString() + " ");
-                }
-                Console.WriteLine();
-            }
+            //    for (int i = 0; i < temp.Length; i++)
+            //    {
+            //        Console.Write(temp[i].toString() + " ");
+            //    }
+            //    Console.WriteLine();
+            //}
 
 
 

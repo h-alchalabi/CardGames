@@ -11,11 +11,12 @@ namespace CardGame
         private Card[] playedPile;
         private Player[] players;
         private Card[] drawPile;
-        private int turn, amountToDeal; 
+        private int turn, amountToDeal, counter = 0, amountOfPlayers; 
 
         public CrazyEight(int amountOfPlayers, Deck deck)                       //Constructor, sets amount to deal to 8 
         {                                                                       //Sets the max size for the playedPile, each entry is init to null
             amountToDeal = 8;
+            this.amountOfPlayers = amountOfPlayers;
             playedPile = new Card[52];
             players = new Player[amountOfPlayers];                              //Sets the approriate amountOfPlayers
             for (int i = 0; i < amountOfPlayers; i++)                           //Creates instances of the players
@@ -26,8 +27,19 @@ namespace CardGame
             players = deck.deal(players, amountToDeal);                         //Deals the Cards to the players.
             drawPile = deck.CopyTo(deck, amountToDeal * amountOfPlayers);       //Copies the cards that are not to dealt to players to a draw pile. 
             Random random = new Random();
-            turn = random.Next(amountOfPlayers);                                //Sets the starting player randomly. 
+            turn = random.Next(amountOfPlayers);                                //Sets the starting player randomly.
+            playedPile[0] = drawPile[counter++];                                //Starts the game by playing the top card of drawPile. 
         }
+
+        public void Play()
+        {
+            //players[turn++ % amountOfPlayers].printHand();
+            foreach (Player p in players)
+            {
+                p.printHand();
+            }
+        }
+
 
         public Card[] getPlayedPile()
         {
