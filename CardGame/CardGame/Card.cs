@@ -29,7 +29,7 @@ namespace CardGame
             return this.value + this.suite;
         }
 
-        public int valueStringToInt()
+        public int valueStringToInt()                               //Converting string to int based on the value of the card. Used when sorting. 
         {
             if (this.value == "A")
                 return 1;

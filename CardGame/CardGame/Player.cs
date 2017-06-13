@@ -45,9 +45,43 @@ namespace CardGame
             Console.WriteLine(s);
         }
 
-        public void sort()
+        public void sort(int left, int right)                                            //QuickSort implementation to sort player's hand strictly based on value.
         {
-            
+            int low = left, high = right;
+            int pivot = hand[((low + high) / 2)].valueStringToInt();
+
+            while (low <= high)
+            {
+                while (hand[low].valueStringToInt().CompareTo(pivot) < 0)
+                {
+                    low++;
+                }
+                while(hand[high].valueStringToInt().CompareTo(pivot) > 0 ){
+                    high--;
+                }
+
+                if (low <= high)
+                {
+                    Card temp = hand[low];
+                    hand[low] = hand[high];
+                    hand[high] = temp;
+                    low++;
+                    high--;
+                }
+
+                if (left < high)
+                {
+                    sort(left, high);
+                }
+                if (low < right)
+                {
+                    sort(low, right);
+                }
+
+            }
+
+
+
         }
 
     }

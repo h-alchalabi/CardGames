@@ -10,8 +10,8 @@ namespace CardGame
     {
         static void Main(string[] args)
         {
-            int amountOfPlayers = 5;
-            Deck deck = new Deck(52);
+            int amountOfPlayers = 5;                                                //TODO: let user define amount of players.
+            Deck deck = new Deck(52);                                       
             Player[] playerArray = new Player[amountOfPlayers];
             CrazyEight crazyEight = new CrazyEight(amountOfPlayers, deck);
             crazyEight.Play();
@@ -53,7 +53,7 @@ namespace CardGame
 
 
 
-            Console.ReadKey();
+            Console.ReadKey();                              //To keep console open.
         }
     }
 }

@@ -31,16 +31,19 @@ namespace CardGame
             playedPile[0] = drawPile[counter++];                                //Starts the game by playing the top card of drawPile. 
         }
 
-        public void Play()
+
+
+        public void Play()                                                      //TODO: implement functionality of play. 
         {
             //players[turn++ % amountOfPlayers].printHand();
             foreach (Player p in players)
             {
+                p.sort(0, p.getHand().Length-1);
                 p.printHand();
             }
         }
 
-
+        //Getters & Setters 
         public Card[] getPlayedPile()
         {
             return this.playedPile;
