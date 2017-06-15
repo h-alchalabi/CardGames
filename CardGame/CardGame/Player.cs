@@ -23,10 +23,10 @@ namespace CardGame
         public void setHand(List<Card> hand) { this.hand = hand; }
         public void setPosition(Card c) { hand.Add(c); }
 
-        public void draw(Card c) //TODO: implement draw. 
+        public void draw(Card c) //Player drawing a card
         {
             hand.Add(c);
-            hand.Sort();
+            this.sort();
         }
 
         public void printHand() //Prints the player's hand. 
@@ -39,7 +39,7 @@ namespace CardGame
             }
             Console.WriteLine(s);
         }
-
+        //Sorting Algorithm using List's built in sorting Algorithm, using comparing based on card's value strictly. 
         public void sort() { hand.Sort(delegate(Card c1, Card c2) { return c1.valueStringToInt().CompareTo(c2.valueStringToInt()); }); }
 
 

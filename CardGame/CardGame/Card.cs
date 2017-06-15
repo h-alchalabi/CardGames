@@ -11,21 +11,16 @@ namespace CardGame
         private char suite;
         private string value;
 
-        public char getSuite()
-        {
-            return this.suite;
-        }
-        public string getValue()
-        {
-            return this.value;
-        }
+        //Getters & Setters. 
+        public char getSuite(){return this.suite;}
+        public string getValue(){return this.value;}
 
-        public Card(char suite, String value){
+        public Card(char suite, String value){                  //Constuctor 
             this.suite = suite;
             this.value = value;
         }
 
-        public String toString(){
+        public String toString(){                               //ToString
             return this.value + this.suite;
         }
 

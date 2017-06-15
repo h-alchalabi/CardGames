@@ -11,7 +11,7 @@ namespace CardGame
         private Card[] playedPile;
         private Player[] players;
         private Card[] drawPile;
-        private int turn, amountToDeal, counter = 0, amountOfPlayers; 
+        private int turn, amountToDeal, counter = 0, amountOfPlayers;
 
         public CrazyEight(int amountOfPlayers, Deck deck)                       //Constructor, sets amount to deal to 8 
         {                                                                       //Sets the max size for the playedPile, each entry is init to null
@@ -31,8 +31,6 @@ namespace CardGame
             playedPile[0] = drawPile[counter++];                                //Starts the game by playing the top card of drawPile. 
         }
 
-
-
         public void Play()                                                      //TODO: implement functionality of play. 
         {
             //players[turn++ % amountOfPlayers].printHand();
@@ -45,37 +43,11 @@ namespace CardGame
         }
 
         //Getters & Setters 
-        public Card[] getPlayedPile()
-        {
-            return this.playedPile;
-        }
-
-        public void setPlayedPile(Card[] playedPile)
-        {
-            this.playedPile = playedPile;
-        }
-
-        public Player[] getPlayers()
-        {
-            return this.players;
-        }
-
-        public void setPlayers(Player[] players)
-        {
-            this.players = players;
-        }
-
-        public Card[] getDrawPile()
-        {
-            return this.drawPile;
-        }
-
-        public void setDrawPile(Card[] drawPile)
-        {
-            this.drawPile = drawPile;
-        }
-
-
-
+        public Card[] getPlayedPile() { return this.playedPile; }
+        public void setPlayedPile(Card[] playedPile) { this.playedPile = playedPile; }
+        public Player[] getPlayers() { return this.players; }
+        public void setPlayers(Player[] players) { this.players = players; }
+        public Card[] getDrawPile() { return this.drawPile; }
+        public void setDrawPile(Card[] drawPile) { this.drawPile = drawPile; }
     }
 }
