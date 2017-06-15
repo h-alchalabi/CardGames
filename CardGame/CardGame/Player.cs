@@ -1,37 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CardGame
 {
-    class Player
+    class Player 
     {
-        private Card[] hand { get; set; }
         private int counter;
+        private List<Card> hand;
 
-        public Player(int i){
-            hand = new Card[i];
-            counter = 0; 
-        }
-        public Card[] getHand()
+        public Player()
         {
-            return hand;
+            counter = 0;
+            hand = new List<Card>();
         }
 
-        public void setHand(Card[] hand)
-        {
-            this.hand = hand;
-        }
-	
-        public void setPosition(int i, Card c){
-            hand[i] = c;
-        }
+        //Getters & Setters
+        public List<Card> getHand() { return this.hand; }
+        public void setHand(List<Card> hand) { this.hand = hand; }
+        public void setPosition(Card c) { hand.Add(c); }
 
-        public void draw(int i) //TODO: implement draw. 
+        public void draw(Card c) //TODO: implement draw. 
         {
-            i = 2; 
+            hand.Add(c);
+            hand.Sort();
         }
 
         public void printHand() //Prints the player's hand. 
@@ -45,21 +40,24 @@ namespace CardGame
             Console.WriteLine(s);
         }
 
+        public void sort() { hand.Sort(delegate(Card c1, Card c2) { return c1.valueStringToInt().CompareTo(c2.valueStringToInt()); }); }
+
+
+
+
+
+
+
+        /* Legacy Code. 
+
         public void sort(int left, int right)                                            //QuickSort implementation to sort player's hand strictly based on value.
         {
             int low = left, high = right;
             int pivot = hand[((low + high) / 2)].valueStringToInt();
-
             while (low <= high)
             {
-                while (hand[low].valueStringToInt().CompareTo(pivot) < 0)
-                {
-                    low++;
-                }
-                while(hand[high].valueStringToInt().CompareTo(pivot) > 0 ){
-                    high--;
-                }
-
+                while (hand[low].valueStringToInt().CompareTo(pivot) < 0) { low++; }
+                while (hand[high].valueStringToInt().CompareTo(pivot) > 0) { high--; }
                 if (low <= high)
                 {
                     Card temp = hand[low];
@@ -68,21 +66,13 @@ namespace CardGame
                     low++;
                     high--;
                 }
-
-                if (left < high)
-                {
-                    sort(left, high);
-                }
-                if (low < right)
-                {
-                    sort(low, right);
-                }
-
+                if (left < high) { sort(left, high); }
+                if (low < right) { sort(low, right); }
             }
-
-
-
         }
+         */
+        
+        
 
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CardGame
 {
-    class Card
+    class Card 
     {
         private char suite;
         private string value;
@@ -42,5 +42,6 @@ namespace CardGame
             else
                 return Int32.Parse(this.value);
         }
+
     }
 }

@@ -21,7 +21,7 @@ namespace CardGame
             players = new Player[amountOfPlayers];                              //Sets the approriate amountOfPlayers
             for (int i = 0; i < amountOfPlayers; i++)                           //Creates instances of the players
             {
-                players[i] = new Player(amountToDeal);
+                players[i] = new Player();
             }
             deck.setDeck(deck.shuffle());                                       //Shuffles the deck
             players = deck.deal(players, amountToDeal);                         //Deals the Cards to the players.
@@ -36,9 +36,10 @@ namespace CardGame
         public void Play()                                                      //TODO: implement functionality of play. 
         {
             //players[turn++ % amountOfPlayers].printHand();
+            Console.WriteLine(playedPile[0].toString());
             foreach (Player p in players)
             {
-                p.sort(0, p.getHand().Length-1);
+                p.sort();
                 p.printHand();
             }
         }

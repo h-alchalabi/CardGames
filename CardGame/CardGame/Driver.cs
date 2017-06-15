@@ -10,14 +10,14 @@ namespace CardGame
     {
         static void Main(string[] args)
         {
-            int amountOfPlayers = 5;                                                //TODO: let user define amount of players.
+            int amountOfPlayers = 5, amountToDeal = 8;                                                //TODO: let user define amount of players.
             Deck deck = new Deck(52);                                       
             Player[] playerArray = new Player[amountOfPlayers];
             CrazyEight crazyEight = new CrazyEight(amountOfPlayers, deck);
             crazyEight.Play();
-
-
-
+           
+            
+            
             //for (int i = 0; i < playerArray.Length; i++)
             //{
             //    playerArray[i] = new Player(amountToDeal);
@@ -25,7 +25,7 @@ namespace CardGame
 
             //Console.WriteLine(deck.toString());
 
-            //deck.setDeck(deck.shuffle());
+            //setDeck(deck.shuffle());
 
             //for (int i = 0; i <= 3; i++)
             //{
@@ -40,13 +40,15 @@ namespace CardGame
 
             //foreach (Player p in playerArray)
             //{
-            //    Card[] temp = p.getHand();
-
-            //    for (int i = 0; i < temp.Length; i++)
+               
+            //    p.sort();
+            //    List<Card> temp = p.getLHand();
+            //    Console.Write("Hand: ");
+            //    foreach (Card c in temp)
             //    {
-            //        Console.Write(temp[i].toString() + " ");
+            //        Console.Write(c.toString() + " " );
             //    }
-            //    Console.WriteLine();
+            //    Console.WriteLine(); 
             //}
 
 

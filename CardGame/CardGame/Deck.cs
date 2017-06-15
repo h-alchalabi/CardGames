@@ -53,8 +53,9 @@ namespace CardGame
 		int amountOfCards = playerArray.Length * amountToDeal; 
 		    for(int i = 0; i < amountOfCards; i++)
             {
-			playerArray[i%playerArray.Length].setPosition(i/playerArray.Length, deck[i]);
-		    }
+			//playerArray[i%playerArray.Length].setPosition(i/playerArray.Length, deck[i]);
+                playerArray[i % playerArray.Length].setPosition(deck[i]);
+            }
 		
 		return playerArray;
 		
