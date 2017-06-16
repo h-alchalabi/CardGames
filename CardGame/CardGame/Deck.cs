@@ -25,7 +25,7 @@ namespace CardGame
         }
 
         public String toString()                                            //Overridding toString.
-        {											
+        {
             StringBuilder s = new StringBuilder();
             s.Append("Deck: ");
             for (int i = 0; i < deck.Length; i++) { s.Append(deck[i].toString() + " "); }
@@ -57,12 +57,7 @@ namespace CardGame
         {
             Card[] cardArray = new Card[52 - i];
             Card[] temp = deck.getDeck();
-
-            for (int j = 0; j < cardArray.Length; j++)
-            {
-                cardArray[j] = temp[i++];
-            }
-
+            for (int j = 0; j < cardArray.Length; j++) { cardArray[j] = temp[i++]; }
             return cardArray;
         }
 

@@ -26,16 +26,28 @@ namespace CardGame
 
         public int valueStringToInt()                               //Converting string to int based on the value of the card. Used when sorting. 
         {
-            if (this.value == "A")
+            if (this.value.Equals("A", StringComparison.CurrentCultureIgnoreCase))
                 return 1;
-            else if (this.value == "J")
+            else if (this.value.Equals("J", StringComparison.CurrentCultureIgnoreCase))
                 return 11;
-            else if (this.value == "Q")
+            else if (this.value.Equals("Q", StringComparison.CurrentCultureIgnoreCase))
                 return 12;
-            else if (this.value == "K")
+            else if (this.value.Equals("K", StringComparison.CurrentCultureIgnoreCase))
                 return 13;
             else
                 return Int32.Parse(this.value);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || obj.GetType() != GetType())
+            {
+                return false;
+            }
+            Card c = (Card)obj;
+
+            if (this.value.Equals(c.getValue()) && this.suite == c.getSuite()) return true;
+            else return false;
         }
 
     }

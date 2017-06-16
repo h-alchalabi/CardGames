@@ -14,8 +14,11 @@ namespace CardGame
             Deck deck = new Deck(52);                                       
             Player[] playerArray = new Player[amountOfPlayers];
             CrazyEight crazyEight = new CrazyEight(amountOfPlayers, deck);
-            crazyEight.Play();
-           
+
+
+            while (true) { 
+                crazyEight.Play();
+            }           
             
             
             //for (int i = 0; i < playerArray.Length; i++)
