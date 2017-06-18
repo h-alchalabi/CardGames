@@ -43,7 +43,12 @@ namespace CardGame
             else 
                 playedCards = players[turn].playCE(playedPile[counter]);
 
-           
+            foreach (Card c in playedCards)
+            {
+                playedPile[++counter] = c;
+            }
+
+            parseInput(playedCards);
 
 
 
@@ -70,8 +75,22 @@ namespace CardGame
                 }
                 if (c.getValue() == "A" && c.getSuite() == 'S')
                 {
+                   //TODO: add a better implemenation to change the turn order
+                    /* -add boolean called cc(CounterClockwise) if its true turn is decremented, if its false turn is incremented.
+                     * In both cases mod by players.Length 
+                     * -Find another method. 
+                     */
                     //change turn order. 
                 }
+            }
+        }
+        //TODO: if the drawStack isEmpty, then take all but the top card of the playedPile and shuffle it.
+        //Once it is shuffled. Insert all the elements into the drawStack. 
+        public void beforeDraw() 
+        {
+            if (drawStack.Count == 0)
+            {
+
             }
         }
 
