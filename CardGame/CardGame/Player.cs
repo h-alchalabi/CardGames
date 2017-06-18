@@ -47,6 +47,15 @@ namespace CardGame
         public void sort() { hand.Sort(delegate(Card c1, Card c2) { return c1.valueStringToInt().CompareTo(c2.valueStringToInt()); }); }
 
         //Play for Crazy Eight variant
+        /*
+         * 1: Ask the user for input.
+         * 2: Parse the input.
+         * 3: if the user enters P, pass your turn without playing card(s)
+         * 4: Convert the input from a string to card(s) 
+         * 5: Check if the input is a subset of the players hand
+         * 6: if it isn't, go to 1. Else remove the card(s)
+         * 7: return the cards.
+        */
         public Card[] playCE(Card c)
         {
             Card card = null;
@@ -55,44 +64,49 @@ namespace CardGame
             String s;
             regex = new Regex(pattern);
             
+
+            //Start of method: Asking user for input, in a specified format.
             Reinput:  
             Console.WriteLine("Enter the card(s) that you want to play." +
                     "\nfirst entering the value and then entering the suite seperated by a space for each card." +
                     "\nOr Enter P to pass");
-            
+            //If the input isn't in the correct format, loop until you get a correctly formatted string
             while (true)
             {
                 s = Console.ReadLine();
                 if (regex.IsMatch(s)) { break; }
                 Console.WriteLine("The input wasn't in the correct format, please re-enter following the above stated rules.");
             }
-
+            //if the first char is P then pass the turn.
             if (s.Split()[0].Equals("P", StringComparison.CurrentCultureIgnoreCase)) return null;
-
+            //Convert the string into cards which are delimited by the whitespace
             Card[] cards = this.convertToCards(s.Split());
 
             int valid = 0;
+            //Checking if the Player has the cards.
             foreach (Card x in cards)
             {
-                Console.WriteLine(x.toString());
                 if (hand.Any<Card>(q => q.getValue() == x.getValue() && q.getSuite() == x.getSuite()) )                                                     //TODO: FIX THE EQUALS COMPARER. 
                 {
                     valid++;
                 }
             }
-
-
-            Console.WriteLine("valid -- " + valid + " cards leng -- " + cards.Length);
-            if (valid == cards.Length) return cards;
-            else {
+            //if the Player enters cards that they don't have, tell them to start over
+            if (valid != cards.Length){
                 Console.WriteLine("You don't have the right cards. Please start over. ");
                 goto Reinput; 
             }
-
+            //if the user input is correct, remove the cards that they inputted.
+            foreach (Card x in cards)
+            {
+                hand.Remove(x);
+            }
+            
             return cards;
 
         }
 
+        //Checks if the player has a card that can be played.
         public bool validCE(Card c)
         {
             foreach (Card x in hand)
@@ -104,7 +118,7 @@ namespace CardGame
             }
             return false;
         }
-
+        //Parsing input method. 
         public Card[] convertToCards(String[] delimited)
         {
             Card[] cards = new Card[delimited.Length - 1];

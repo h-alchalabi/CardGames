@@ -32,20 +32,47 @@ namespace CardGame
 
         public void Play()                                                      //TODO: implement functionality of play. 
         {
+            Card[] playedCards = null; 
             Console.WriteLine("Player " + turn + "'s turn to play. Top card is: " + playedPile[counter].toString());
             if (!players[turn].validCE(playedPile[counter]))
             {
                 players[turn].draw(drawStack.Pop());
                 if (players[turn].validCE(playedPile[counter]))
-                    players[turn].playCE(playedPile[counter]);
+                    playedCards = players[turn].playCE(playedPile[counter]);
             }
             else 
-                players[turn].playCE(playedPile[counter]);
+                playedCards = players[turn].playCE(playedPile[counter]);
+
+           
 
 
 
 
            // turn = ++turn % players.Length;                                    //giving the turn to the next player
+        }
+
+        public void parseInput(Card[] cards)
+        {
+            foreach (Card c in cards)
+            {
+                if (c.getValue() == "2")
+                {
+                    players[(turn+1) % players.Length].draw(drawStack.Pop());
+                    players[(turn+1) % players.Length].draw(drawStack.Pop());
+                }
+                if (c.getValue() == "J") { turn++; }
+                if (c.getValue() == "Q" && c.getSuite() == 'S')
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        players[(turn + 1) % players.Length].draw(drawStack.Pop());
+                    }
+                }
+                if (c.getValue() == "A" && c.getSuite() == 'S')
+                {
+                    //change turn order. 
+                }
+            }
         }
 
         //Getters & Setters 
